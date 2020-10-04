@@ -1,0 +1,1488 @@
+/* Megamenu stylesheet */
+
+/* Primary Menu */
+.header-container{
+    .horizontal-menu {
+        text-align: left; // align mega main menu
+        /* for default wordpress menu (not selected menu location) */
+        div.nav-menu {
+            width: 100%;
+            & > ul {
+                display: none;
+            }
+        }
+        /* for default wordpress menu (selected menu location) */
+        .primary-menu-container {
+            text-align: left;
+            width: 100%;
+            ul.nav-menu {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                text-align: left;
+                vertical-align: middle;
+                .clearfix();
+                 > li {
+                    display: inline-block;
+                    margin: 0 35px 0 0;
+                    position: relative;
+                    &.nav_search_box {
+                        display: none;
+                    }
+                    &:hover,
+                    &.current-menu-ancestor,
+                    &.current-menu-item {
+                        & > a {
+                             color: @primarycolor;
+                        }
+                    }
+                    &:hover {
+                         > .sub-menu {
+                            max-height: 3000px;
+                            max-width: 3000px;
+                            opacity: 1;
+                            overflow: visible;
+                            -webkit-transform: perspective( 600px ) rotateX( 0deg );
+                               -moz-transform: perspective( 600px ) rotateX( 0deg );
+                                -ms-transform: perspective( 600px ) rotateX( 0deg );
+                                 -o-transform: perspective( 600px ) rotateX( 0deg );
+                                    transform: perspective( 600px ) rotateX( 0deg );
+                            -webkit-transition: -webkit-transform .5s ease, opacity .2s ease, max-height 0s step-end, max-width 0s step-end, padding 0s step-end;
+                                 -o-transition:      -o-transform .5s ease, opacity .2s ease, max-height 0s step-end, max-width 0s step-end, padding 0s step-end;
+                                    transition:         transform .5s ease, opacity .2s ease, max-height 0s step-end, max-width 0s step-end, padding 0s step-end;
+                        }
+                    }
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                    &.menu-item-has-children {
+                         > a:after {
+                            content: '\f3d0';
+                            display: inline-block;
+                            font-family: 'Ionicons';
+                            font-size: 14px;
+                            margin-left: 5px;
+                            vertical-align: top;
+                        }
+                    }
+                     > a {
+                        color: @menucolor;
+                        display: block;
+                        font-family: @menufont;
+                        font-size: @menufontsize;
+                        font-weight: @menufontweight;
+                        height: 56px;
+                        line-height: 56px;
+                        padding: 0;
+                        position: relative;
+                        text-transform: uppercase;
+                        .transition();
+                    }
+                     > .sub-menu {
+                        display: block !important;
+                        max-height: 0;
+                        max-width: 0;
+                        opacity: 0;
+                        overflow: hidden;
+                        -webkit-transform-origin: 0 0;
+                           -moz-transform-origin: 0 0;
+                            -ms-transform-origin: 0 0;
+                             -o-transform-origin: 0 0;
+                                transform-origin: 0 0;
+                        .transform(perspective( 600px ) rotateX( -90deg ));
+                        .transition(transform .5s ease, opacity .6s ease, max-height .6s step-end, max-width .6s step-end, padding .6s step-end);
+                    }
+                    .sub-menu {
+                        background: @submenubg;
+                        border: 1px solid @bordercolor;
+                        display: none;
+                        font-size: @submenufontsize;
+                        left: 0;
+                        margin: 0;
+                        min-width: 230px;
+                        padding: 25px 0;
+                        position: absolute;
+                        top: 100%;
+                        z-index: 99;
+                        .box-shadow(0px 1px 3px 0px rgba(0, 0, 0, .2));
+                        li {
+                            float: left;
+                            font-size: @submenufontsize;
+                            list-style-type: none;
+                            margin-bottom: 10px;
+                            position: relative;
+                            width: 100%;
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                            &.current-menu-item,
+                            &.current-menu-ancestor,
+                            &.current-menu-parent {
+                                & > a {
+                                    color: @linkhovercolor;
+                                }
+                            }
+                            &:hover,
+                            &.sfHover {
+                                & > ul {
+                                    display: block;
+                                }
+                                & > a {
+                                    color: @linkhovercolor;
+                                }
+                            }
+                            a {
+                                border: none;
+                                color: @submenucolor;
+                                display: block;
+                                float: left;
+                                font-family: @submenufont;
+                                font-size: @submenufontsize;
+                                font-weight: @submenufontweight;
+                                line-height: 1.8;
+                                padding: 0 25px;
+                                width: 100%;
+                            }
+                            .sub-menu {
+                                left: 90%;
+                                top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /* for active megamainmenu (selected menu location) */
+         > .mega_main_menu {
+            display: inline-block;
+            min-height: 0; /* override */
+            text-align: left;
+            vertical-align: middle;
+            z-index: 3 !important;
+            & > .menu_holder {
+                .menu_inner {
+                    width: 100%;
+                    .nav_logo {
+                        display: none;
+                    }
+                    & > ul {
+                        & > li {
+                            display: inline-block;
+                            margin: 0 30px 0 0;
+                            &.nav_search_box {
+                                display: none;
+                            }
+                            &:hover,
+                            &.current-menu-ancestor,
+                            &.current-menu-item {
+                                & > a {
+                                    &.item_link {
+                                        .link_text {
+                                            color: @primarycolor;
+                                        }
+                                    }
+                                }
+                            }
+                             &:hover {
+                                 > a.item_link {
+                                    .link_text {
+                                        color: @primarycolor;
+                                    }
+                                }
+                            }
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                            &.menu-item-has-children {
+                                &:hover {
+                                     > a.item_link {
+                                        .link_text {
+                                            &:after {
+                                                border-bottom-color: @primarycolor;
+                                            }
+                                        }
+                                    }
+                                }
+                                 > a.item_link {
+                                    .link_text:after {
+                                        content: '\f3d0';
+                                        display: inline-block;
+                                        font-family: 'Ionicons';
+                                        font-size: 14px;
+                                        margin-left: 5px;
+                                        vertical-align: top;
+                                    }
+                                }
+                            }
+                            //first level
+                            & > a {
+                                &.item_link {
+                                    background: none;  /* override */
+                                    display: table;
+                                    float: left;
+                                    height: 50px;
+                                    line-height: 50px;
+                                    padding: 0;
+                                    position: relative;
+                                    * {
+                                        color: @menucolor;
+                                    }
+                                    i[class*='im-icon'] {
+                                        display: inline-block;
+                                        float: none;
+                                        height: auto;
+                                        line-height: 1;
+                                        padding-right: 5px;
+                                        vertical-align: middle;
+                                    }
+                                    .link_content {
+                                        display: table-cell;
+                                        float: none;
+                                        vertical-align: middle;
+                                    }
+                                    .link_text {
+                                        background: none;
+                                        font-family: @menufont;
+                                        font-size: @menufontsize;
+                                        font-weight: @menufontweight;
+                                        height: auto;
+                                        text-transform: uppercase;
+                                        .transition();
+                                        .border-radius(4px);
+                                    }
+                                    &:before {
+                                        display: none; /* override */
+                                    }
+                                    &:after {
+                                        display: none;
+                                    }
+                                }
+                            }
+                            & > ul.mega_dropdown {
+                                background: @submenubg;
+                                border: 1px solid @bordercolor;
+                                position: absolute;
+                                top: 100%;
+                                .box-shadow(0px 1px 3px 0px rgba(0, 0, 0, .2));
+                            }
+                            ul.mega_dropdown {
+                                font-family: @menufont;
+                                .post_item {
+                                    padding-bottom: 10px;
+                                    .processed_image {
+                                        a.icon {
+                                            i {
+                                                position: absolute;
+                                            }
+                                            &:hover {
+                                                background: rgba(red(@primarycolor), green(@primarycolor), blue(@primarycolor), .4);
+                                            }
+                                        }
+                                    }
+                                }
+                                .post_details {
+                                    background: @submenubg;
+                                    box-shadow: none;
+                                    padding: 0 10px 10px;
+                                    .processed_image {
+                                        &:hover {
+                                            img {
+                                                opacity: .7;
+                                            }
+                                        }
+                                        img {
+                                            .transition();
+                                        }
+                                    }
+                                    .post_title {
+                                        color: @submenucolor;
+                                        font-size: @menufontsize;
+                                        margin-bottom: 5px;
+                                        text-transform: uppercase;
+                                    }
+                                    .post_description {
+                                        color: @submenucolor;
+                                    }
+                                    .post_icon,
+                                    .post_icon * {
+                                        color: @submenucolor;
+                                    }
+                                }
+                                .recent-posts {
+                                    ul {
+                                        li {
+                                            float: left;
+                                            list-style: none;
+                                            margin: 0 0 25px;
+                                            width: 100%;
+                                            .post-thumb {
+                                                float: left;
+                                                width: 25%;
+                                                a {
+                                                    padding: 0;
+                                                    img {
+                                                        width: 100%;
+                                                    }
+                                                }
+                                            }
+                                            .post-info {
+                                                float: left;
+                                                padding-left: 30px;
+                                                width: 75%;
+                                                .post-title {
+                                                    line-height: 1;
+                                                    a {
+                                                        color: @submenucolor;
+                                                        font-size: @menufontsize;
+                                                        font-weight: normal;
+                                                        padding: 3px 0;
+                                                    }
+                                                }
+                                                .post-date {
+                                                    color: @submenucolor;
+                                                    font-size: 12px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .product_list_widget {
+                                    li {
+                                        margin: 0 0 25px;
+                                        padding: 0;
+                                        .product-image {
+                                            float: left;
+                                            width: 25%;
+                                            a {
+                                                display: block;
+                                                float: left;
+                                                padding: 0;
+                                                width: 100%;
+                                                img {
+                                                    width: 100%;
+                                                }
+                                            }
+                                        }
+                                        .product-info {
+                                            float: left;
+                                            padding-left: 30px;
+                                            width: 75%;
+                                            a {
+                                                font-size: @menufontsize;
+                                                font-weight: normal;
+                                                margin: 0 0 5px;
+                                                padding: 3px 0;
+                                                text-transform: uppercase;
+                                                .product-title {
+                                                    color: @submenucolor;
+                                                }
+                                            }
+                                            .star-rating {
+                                                height: 22px;
+                                                & > * {
+                                                    color: @submenucolor;
+                                                }
+                                            }
+                                            .special-price {
+                                                .amount {
+                                                    color: @submenucolor;
+                                                    font-size: @menufontsize;
+                                                    font-weight: @headingfontweight;
+                                                }
+                                            }
+                                            .old-price {
+                                                .amount {
+                                                    color: @submenucolor;
+                                                    font-size: 13px;
+                                                    margin-left: 10px;
+                                                    text-decoration: line-through;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &.default_dropdown {
+                                ul.mega_dropdown {
+                                    background: @submenubg;
+                                    margin: 0;
+                                    padding: 20px 0;
+                                    width: 240px;
+                                    li {
+                                        color: @submenucolor;
+                                        font-family: @submenufont;
+                                        font-size: @submenufontsize;
+                                        font-weight: @submenufontweight;
+                                        width: auto;
+                                        &:first-child {
+                                            border-top: none;
+                                        }
+                                        a.item_link {
+                                            background: none;
+                                            border: none;
+                                            font-size: @submenufontsize;
+                                            padding: 10px 30px;
+                                            text-transform: none;
+                                            .link_text {
+                                                color: @submenucolor;
+                                                font-family: @submenufont;
+                                                font-size: @submenufontsize;
+                                                font-weight: @submenufontweight;
+                                                text-transform: none;
+                                            }
+                                            i {
+                                                color: @submenucolor;
+                                                line-height: 25px;
+                                                margin: 4px 0 0 0;
+                                                padding-right: 6px;
+                                                position: static;
+                                            }
+                                            &:hover {
+                                                .link_text {
+                                                    color: @primarycolor;
+                                                }
+                                                i {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                            &:focus {
+                                                background: none;
+                                            }
+                                            &:before {
+                                                display: none;
+                                            }
+                                        }
+                                        &.current-menu-ancestor,
+                                        &.current-menu-item {
+                                            & > a.item_link {
+                                                .link_text {
+                                                    color: @primarycolor;;
+                                                }
+                                                i {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &.multicolumn_dropdown {
+                                &.columns4 {
+                                    & > ul.mega_dropdown {
+                                        min-width: 630px;
+                                    }
+                                }
+                                &.columns5 {
+                                    & > ul.mega_dropdown {
+                                        min-width: 780px;
+                                    }
+                                }
+                                &.columns6 {
+                                    & > ul.mega_dropdown {
+                                        min-width: 930px;
+                                    }
+                                }
+                                & > ul.mega_dropdown {
+                                    background: @submenubg;
+                                    margin: 0;
+                                    padding: 35px 15px 20px 15px;
+                                    & > li {
+                                        color: @submenucolor;
+                                        font-family: @submenufont;
+                                        font-size: @submenufontsize;
+                                        font-weight: @submenufontweight;
+                                        a,
+                                        span.item_link {
+                                            background: none;
+                                            font-size: 1em;
+                                            padding: 0;
+                                            text-transform: none;
+                                            .link_text {
+                                                color: @submenucolor;
+                                                display: block;
+                                                font-family: @submenufont;
+                                                font-size: @submenufontsize;
+                                                font-weight: @submenufontweight;
+                                                line-height: 1.25;
+                                                padding: 7px 0;
+                                            }
+                                            i {
+                                                color: @submenucolor;
+                                                line-height: 25px;
+                                                margin: 4px 0 0 0;
+                                                padding-right: 6px;
+                                                position: static;
+                                            }
+                                            &:hover {
+                                                .link_text,
+                                                i {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                            &:focus {
+                                                background: none;
+                                            }
+                                            &:before {
+                                                display: none;
+                                            }
+                                        }
+                                        //first sub level
+                                        & > a,
+                                        & > span.item_link {
+                                            display: block;
+                                            margin: 0 0 12px;
+                                            .link_text {
+                                                border: none;
+                                                color: @darkcolor;
+                                                font-family: @submenufont;
+                                                font-size: 1.143em;
+                                                font-weight: @headingfontweight;
+                                                padding: 0;
+                                                text-transform: none;
+                                            }
+                                            &:before {
+                                                display: none;
+                                            }
+                                            &:hover {
+                                                color: @primarycolor;
+                                            }
+                                        }
+                                    }
+                                    li {
+                                        &.current-menu-item {
+                                            & > a.item_link {
+                                                .link_text {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &.tabs_dropdown,
+                            &.widgets_dropdown,
+                            &.post_type_dropdown {
+                                & > ul.mega_dropdown {
+                                    background: @submenubg;
+                                    box-shadow: none;
+                                    margin: 0;
+                                    padding: 10px 0;
+                                    & > li {
+                                        padding: 0 10px;
+                                        &.post_item {
+                                            padding-bottom: 20px;
+                                        }
+                                        a,
+                                        span.item_link {
+                                            background: none;
+                                            padding: 12px 15px;
+                                            text-transform: none;
+                                            .link_text {
+                                                color: @submenucolor;
+                                                font-family: @bodyfont;
+                                                font-size: @submenufontsize;
+                                                font-weight: normal;
+                                            }
+                                            &:focus {
+                                                background: none;
+                                            }
+                                            &:before {
+                                                display: none;
+                                            }
+                                            &:hover {
+                                                background: lighten(@submenubg, 3%);
+                                            }
+                                            i {
+                                                color: @submenucolor;
+                                                font-size: 14px;
+                                                line-height: 25px;
+                                                margin: 4px 0 0 0;
+                                                padding-right: 6px;
+                                                position: static;
+                                            }
+                                            &:hover {
+                                                i {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                        }
+                                        //first sub level
+                                        & > a,
+                                        & > span.item_link {
+                                            background: none;
+                                            margin: 0 0 10px;
+                                            text-transform: uppercase;
+                                            .link_text {
+                                                font-weight: @headingfontweight;
+                                            }
+                                            &:before {
+                                                display: none;
+                                            }
+                                            &:hover {
+                                                background: lighten(@submenubg, 3%);
+                                            }
+                                        }
+                                        &:hover,
+                                        &.current-menu-ancestor,
+                                        &.current-menu-item {
+                                            & > a.item_link {
+                                                .link_text {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    li {
+                                        &.current-menu-item {
+                                            & > a.item_link {
+                                                .link_text {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &.submenu_full_width {
+                                & > ul.mega_dropdown {
+                                    background: @submenubg;
+                                    min-width: 600px;
+                                    width: 100%;
+                                }
+                            }
+                            li.widgets_dropdown {
+                                width: 100% !important;
+                                 > a {
+                                    display: none !important;
+                                }
+                            }
+                        }
+                    }
+                }
+                .mmm_fullwidth_container {
+                    display: none;
+                }
+            }
+        }
+        /* for active megamainmenu (not selected menu location) */
+        div.mega_main_menu_ul {
+            display: none;
+        }
+    }
+}
+
+/* CATEGORIES MENU
+-----------------------------*/
+.categories-menu-wrapper {
+    margin-bottom: 35px;
+    max-width: 100%;
+    position: relative;
+    .categories-menu {
+        min-height: auto;
+        width: 100%;
+        z-index: 99;
+        &.show {
+            .catemenu {
+                border:1px solid @bordercolor;
+                border-color: @bordercolor;
+                height: auto;
+                overflow: visible;
+            }
+            .catemenu-toggler {
+                span:after {
+                    content: '\f3d0';
+                }
+            }
+        }
+        .catemenu-toggler {
+            .transition();
+            position: relative;
+            background: @categorieslabelbg;
+            color: @white;
+            color: #fff;
+            cursor: pointer;
+            font-size: 15px;
+            height: 53px;
+            line-height: 53px;
+            padding: 0 15px;
+            width: 100%;
+            text-transform: uppercase;
+            -webkit-border-radius: 3px 3px 0 0;
+            -moz-border-radius: 3px 3px 0 0;
+            border-radius: 3px 3px 0 0;
+            span {
+                &:before {
+                    content: "\f03b";
+                    display: inline-block;
+                    font-family: 'FontAwesome';
+                    font-size: 18px;
+                    margin-right: 15px;
+                    vertical-align: top;
+                }
+                &:after {
+                    content: '\f3d8';
+                    display: inline-block;
+                    font-family: 'Ionicons';
+                    font-size: 12px;
+                    line-height: 1;
+                    position: absolute;
+                    right: 20px;
+                    top: 50%;
+                    .transform(translateY(-50%));
+                }
+            }
+        }
+        .catemenu {
+            background: @categoriesbg;
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+        }
+        .catemenu-inner {
+            width: 100%;
+        }
+        .categories {
+            display: none;
+        }
+        /* for default wordpress menu (not selected menu location) */
+        & > ul {
+            display: none;
+            margin: 0;
+            & > li {
+                display: none;
+            }
+        }
+        /* for default wordpress menu (selected menu location) */
+        .categories-menu-container {
+            display: none;
+            position: relative;
+            z-index: 100;
+            ul {
+                background: @categoriesbg;
+                margin: 0;
+                padding: 0;
+                & > li {
+                    list-style: none;
+                    padding: 0 15px;
+                    position: relative;
+                    &.menu-item-has-children {
+                         > a {
+                            &:after {
+                                border: none !important;
+                                color: inherit;
+                                content: '\f105';
+                                display: inline-block;
+                                font-family: FontAwesome;
+                                font-size: 16px;
+                                height: auto;
+                                left: auto;
+                                position: absolute;
+                                right: 20px;
+                                top: 50%;
+                                width: auto;
+                                .transform(translateY(-50%));
+                            }
+                        }
+                    }
+                    &:hover {
+                        & > a {
+                            color: @primarycolor;
+                        }
+                         > .sub-menu {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                    .sub-menu {
+                        border: 1px solid @bordercolor;
+                        left: 100%;
+                        min-width: 200px;
+                        opacity: 0;
+                        position: absolute;
+                        top: 0;
+                        visibility: hidden;
+                        z-index: 9;
+                        .transition();
+                        .sub-menu {
+                            top: 10px;
+                        }
+                    }
+                    //first level
+                    & > a {
+                        background-image: none;
+                        border-bottom: 1px solid @bordercolor;
+                        color: @menucolor;
+                        display: block;
+                        font-family: @menufont;
+                        font-size: 12px;
+                        font-weight: normal;
+                        padding: 12px 15px;
+                        text-decoration: none;
+                        text-transform: none;
+                        .transition();
+                        &:hover {
+                            color: @primarycolor;
+                        }
+                    }
+                }
+            }
+        }
+        /* for normal */
+        .categories {
+            height: auto;
+            & > .menu_holder {
+                width: 100%;
+                .menu_inner {
+                    width: 100%;
+                    .nav_logo {
+                        display: none;
+                    }
+                    & > ul {
+                        & > li {
+                            background: none;
+                            padding: 0;
+                            border-bottom:1px solid @bordercolor;
+                            &.nav_search_box {
+                                display: none !important;
+                            }
+                            &.current-menu-ancestor,
+                            &.current-menu-item,
+                            &.current-product-ancestor,
+                            &:hover {
+                                & > a {
+                                    &.item_link {
+                                        background: #f7f7f7;
+                                        .link_text,
+                                        &:after,
+                                        .link_content,
+                                        i {
+                                            // color: @linkhovercolor;
+                                        }
+                                    }
+                                }
+                            }
+                            &.menu-item-has-children {
+                                & > a {
+                                    &.item_link {
+                                        // background-color: @primarycolor;
+                                        background-image: none;
+                                        &:before {
+                                            display: none;
+                                        }
+                                        &:after {
+                                            border: none !important;
+                                            color: inherit;
+                                            content: '\f105';
+                                            display: inline-block;
+                                            font-family: FontAwesome;
+                                            font-size: 16px;
+                                            height: auto;
+                                            left: auto;
+                                            position: absolute;
+                                            right: 20px;
+                                            top: 50%;
+                                            width: auto;
+                                            .transform(translateY(-50%));
+                                        }
+                                    }
+                                }
+                            }
+                            //first level
+                            & > a {
+                                &.item_link {
+                                    background: none;
+                                    color: @categoriescolor;
+                                    display: block;
+                                    height: auto; // override
+                                    line-height: 1.8;
+                                    min-height: 0 !important;
+                                    overflow: hidden;
+                                    padding: 11px 20px;
+                                    text-decoration: none;
+                                    .transition();
+                                    .link_text,
+                                    i {
+                                        color: @categoriescolor;
+                                        height: 100%;
+                                        text-transform: capitalize;
+                                    }
+                                    i {
+                                        font-size: 14px; /* override */
+                                        line-height: 1;
+                                        padding-right: 10px; /* override */
+                                        position: relative;
+                                        top: 5px;
+                                        width: auto; /* override */
+                                    }
+                                    .link_content {
+                                        height: auto; /* override */
+                                        line-height: inherit; /* override */
+                                        min-height: 0; /* override */
+                                        position: relative;
+                                    }
+                                    .link_text {
+                                        font-size: @categoriesfontsize;
+                                        font-weight: @categoriesfontweight;
+                                        height: 100%;
+                                        line-height: inherit;
+                                        margin: 0 !important;
+                                        min-height: 0 !important;
+                                        padding-right: 15px;
+                                        word-break: break-word;
+                                    }
+                                    &.with_icon {
+                                         > .link_content {
+                                            margin: 0;
+                                        }
+                                    }
+                                    &:before,
+                                    &:after {
+                                        display: none;
+                                    }
+                                }
+                            }
+                            &.default_dropdown {
+                                ul.mega_dropdown {
+                                    background: @categoriessubmenubg;
+                                    border: 1px solid @bordercolor;
+                                    box-shadow: none;
+                                    padding: 0 15px;
+                                    li {
+                                        border-bottom: 1px solid @bordercolor;
+                                        width: 100%;
+                                        &:last-child {
+                                            border-bottom: none;
+                                        }
+                                        a.item_link {
+                                            background: none;
+                                            border: none;
+                                            display: block;
+                                            font-size: @categoriessubmenufontsize;
+                                            line-height: 1.8;
+                                            padding: 12px 0;
+                                            text-transform: none;
+                                            .link_text {
+                                                color: @categoriessubmenucolor;
+                                                font-family: @categoriessubmenufont;
+                                                font-size: @categoriessubmenufontsize;
+                                                font-weight: normal;
+                                            }
+                                            i {
+                                                color: @textcolor;
+                                                float: left;
+                                                padding-right: 9px;
+                                                position: static;
+                                            }
+                                            &:focus {
+                                                background: none;
+                                            }
+                                            &:before {
+                                                display: none;
+                                            }
+                                            &:hover {
+                                                background: none;
+                                                .link_text {
+                                                    color: @primarycolor;
+                                                }
+                                                i {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                        }
+                                        &:hover,
+                                        &.current-menu-ancestor,
+                                        &.current-menu-item,
+                                        &.current-product-ancestor {
+                                            & > a.item_link {
+                                                background: none;
+                                                .link_text {
+                                                    color: @primarycolor;
+                                                }
+                                                i {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                            & > .item_link * {
+                                                color: @primarycolor;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &.multicolumn_dropdown {
+                                &.columns3 {
+                                    & > ul.mega_dropdown {
+                                        width: 670px;
+                                    }
+                                }
+                                &.columns2 {
+                                    & > ul.mega_dropdown {
+                                        width: 460px;
+                                    }
+                                }
+                                &.columns1 {
+                                    & > ul.mega_dropdown {
+                                        width: 255px;
+                                    }
+                                }
+                                & > ul.mega_dropdown {
+                                    background: @categoriessubmenubg;
+                                    border: 1px solid @bordercolor;
+                                    box-shadow: none;
+                                    padding: 25px 0;
+                                    & > li {
+                                        padding: 15px 20px 10px 30px;
+                                        a {
+                                            background: none;
+                                            padding: 0;
+                                            text-transform: none;
+                                            .link_text {
+                                                color: @categoriessubmenucolor;
+                                                display: block;
+                                                font-family: @categoriessubmenufont;
+                                                font-size: @categoriessubmenufontsize;
+                                                font-weight: normal;
+                                            }
+                                            i {
+                                                color: @categoriessubmenucolor;
+                                                float: left;
+                                                height: 36px;
+                                                line-height: 36px;
+                                                padding-right: 9px;
+                                                position: static;
+                                            }
+                                            &:focus {
+                                                background: none;
+                                            }
+                                            &:before {
+                                                display: none;
+                                            }
+                                            &:hover {
+                                                background: none;
+                                                .link_text {
+                                                    color: @primarycolor;
+                                                }
+                                                i {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                        }
+                                        //first sub level
+                                        & > a {
+                                            display: inline-block;
+                                            font-size: @categoriessubmenufontsize;
+                                            margin-bottom: 25px;
+                                            position: relative;
+                                            width: 100%;
+                                            &[href='#'] {
+
+                                            }
+                                            .link_text {
+                                                color: @categoriessubmenucolor;
+                                                display: block;
+                                                font-family: @categoriessubmenufont;
+                                                font-size: 1em;
+                                                font-weight: @headingfontweight;
+                                                line-height: 1.5;
+                                                text-transform: uppercase;
+                                            }
+                                            i {
+                                                height: 47px;
+                                                line-height: 47px;
+                                            }
+                                            &:before {
+                                                display: none;
+                                            }
+                                            &:hover {
+                                                .link_text {
+                                                    color: @primarycolor;
+                                                }
+                                                i {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                        }
+                                        ul.mega_dropdown {
+                                            li {
+                                                margin-bottom: 15px;
+                                                &:last-child {
+                                                    margin-bottom: 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    li {
+                                        &.current-menu-item,
+                                        &.current-product-parent {
+                                            & > .item_link * {
+                                                color: @primarycolor;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &.widgets_dropdown {
+                                & > ul.mega_dropdown {
+                                    background: @categoriessubmenubg;
+                                    border-color: @bordercolor @bordercolor @primarycolor @bordercolor;
+                                    border-style: solid;
+                                    border-width: 1px 1px 3px 1px;
+                                    box-shadow: none;
+                                    padding: 0 15px !important;
+                                    & > li {
+                                        margin: 0;
+                                        &.widget_menu {
+                                            padding: 0;
+                                            position: absolute;
+                                            right: 20px;
+                                            top: 32px;
+                                            width: 170px !important;
+                                            .widget {
+                                                font-size: 12px;
+                                                line-height: 1.5;
+                                                margin: 0;
+                                                padding-left: 0;
+                                                padding-right: 0;
+                                                width: 100%;
+                                                .widgettitle {
+                                                    background: none;
+                                                    border-bottom: 1px solid @bordercolor;
+                                                    margin: 0 0 8px;
+                                                    padding: 0 0 5px;
+                                                    text-transform: uppercase;
+                                                }
+                                                p {
+                                                    float: left;
+                                                    margin: 0;
+                                                    width: 100%;
+                                                    &:first-child {
+                                                        margin-left: 0;
+                                                    }
+                                                }
+                                                a {
+                                                    display: block;
+                                                    float: left;
+                                                    overflow: hidden;
+                                                    padding: 0;
+                                                    position: relative;
+                                                    width: 100%;
+                                                    img {
+                                                        margin: 0;
+                                                        .transition();
+                                                    }
+                                                    &:before {
+                                                        background: #000;
+                                                        content: '';
+                                                        display: block;
+                                                        height: 100%;
+                                                        left: 0;
+                                                        opacity: 0;
+                                                        position: absolute;
+                                                        top: 0;
+                                                        width: 100%;
+                                                        z-index: 1;
+                                                        .transition();
+                                                    }
+                                                    &:hover {
+                                                        img {
+                                                            .transform(scale(1.05));
+                                                        }
+                                                        &:before {
+                                                            opacity: .2;
+                                                        }
+                                                    }
+                                                }
+                                                img {
+                                                    float: left;
+                                                }
+                                            }
+                                        }
+                                        a {
+                                            background: none;
+                                            padding: 0;
+                                            text-transform: none;
+                                            .link_text {
+                                                color: @vmenucolor;
+                                                font-family: @bodyfont;
+                                                font-size: 12px;
+                                                font-weight: normal;
+                                                line-height: 36px;
+                                            }
+                                            i {
+                                                color: @vmenucolor;
+                                                float: left;
+                                                height: 36px;
+                                                line-height: 36px;
+                                                padding-right: 9px;
+                                                position: static;
+                                            }
+                                            &:focus {
+                                                background: none;
+                                            }
+                                            &:before {
+                                                display: none;
+                                            }
+                                            &:hover {
+                                                background: none;
+                                                .link_text {
+                                                    color: @primarycolor;
+                                                }
+                                                i {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                        }
+                                        //first sub level
+                                        & > a {
+                                            border-bottom: 1px solid @bordercolor;
+                                            display: inline-block;
+                                            margin-bottom: 10px;
+                                            text-transform: uppercase;
+                                            width: 100%;
+                                            .link_text {
+                                                color: @vmenucolor;
+                                                font-family: @menufont;
+                                                font-size: 14px !important;
+                                                font-weight: normal;
+                                                line-height: 47px;
+                                            }
+                                            i {
+                                                height: 47px;
+                                                line-height: 47px;
+                                            }
+                                            &:before {
+                                                display: none;
+                                            }
+                                            &:hover {
+                                                .link_text {
+                                                    color: @primarycolor;
+                                                }
+                                                i {
+                                                    color: @primarycolor;
+                                                }
+                                            }
+                                        }
+                                        & > ul.mega_dropdown {
+                                            padding-bottom: 10px;
+                                        }
+                                    }
+                                    li {
+                                        &.current-menu-item,
+                                        &.current-product-parent {
+                                            & > .item_link * {
+                                                color: @primarycolor;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &.submenu_full_width {
+                                & > ul.mega_dropdown {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+                .mmm_fullwidth_container {
+                    display: none;
+                }
+            }
+        }
+        .menu-primary-menu-container {
+            ul#menu-primary-menu {
+                margin: 0;
+                padding: 0;
+                & > li {
+                    list-style: none;
+                }
+            }
+        }
+        /* for active megamainmenu (not selected menu location) */
+        div.mega_main_menu_ul {
+            display: none;
+        }
+        .morelesscate {
+            display: none;
+            width: 100%;
+            z-index: 9999999;
+            span {
+                color: @categoriescolor;
+                cursor: pointer;
+                display: block;
+                font-family: @categoriesfont;
+                font-size: @categoriesfontsize;
+                font-weight: @categoriesfontweight;
+                padding: 12px 25px;
+                text-decoration: none;
+                .transition();
+                i {
+                    font-size: 9px;
+                    padding-right: 10px;
+                }
+                &.lesscate {
+                    display: none;
+                }
+                &:hover {
+                    background: #f7f7f7;
+                }
+            }
+        }
+    }
+    &.style2 {
+        .categories-menu {
+            &.show .catemenu {
+                border-color: @primarycolor;
+            }
+            .catemenu-toggler {
+                color: @darkcolor;
+                &:hover {
+                    background: @darkcolor;
+                    color: @white;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .mobile-menu {
+        margin: 0;
+        position: relative;
+        .mbmenu-toggler {
+            cursor: pointer;
+            font-family: @menufont;
+            font-size:0;
+            font-weight: 400;
+            height:25px;
+            line-height:25px;
+            padding: 0 5px;
+            text-align: center;
+            width:45px;
+            span.mbmenu-icon {
+                font-size: 16px;
+            }
+            &:hover{
+                color: @primarycolor;
+            }
+        }
+        .mobile-menu-container {
+            background: #fff;
+            border-radius: 3px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, .6);
+            height: 0;
+            width: 300px;
+            overflow: hidden;
+            padding: 0 12px;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            z-index: 99;
+            .transition(.5s ease);
+            &.open {
+                display: block;
+            }
+            ul.nav-menu {
+                float: left;
+                margin: 5px 0;
+                padding: 0;
+                text-align: left;
+                width: 100%;
+                & > li {
+                    float: left;
+                    list-style: none;
+                    margin: 0;
+                    position: relative;
+                    width: 100%;
+                    & > a {
+                        border-top: 1px solid @bordercolor;
+                        color: @greycolor;
+                        display: block;
+                        float: left;
+                        font-size: 16px;
+                        height: 40px;
+                        line-height: 40px;
+                        text-transform: uppercase;
+                        width: 100%;
+                        &:hover {
+                            color: @primarycolor;
+                        }
+                    }
+                    &:first-child {
+                        a {
+                            border-top: none;
+                        }
+                    }
+                    &.current-menu-item > a {
+                        color: @primarycolor;
+                    }
+                    .fa {
+                        color: @greycolor;
+                        cursor: pointer;
+                        float: right;
+                        height: 40px;
+                        line-height: 40px;
+                        position: absolute;
+                        right: 0;
+                        text-align: center;
+                        top: 0;
+                        width: 40px;
+                        z-index: 2;
+                        &:hover {
+                            color: @primarycolor;
+                        }
+                    }
+                    //first sub
+                    & > ul.sub-menu {
+                        & > li {
+                            & > a {
+                                color: @greycolor;
+                                &:hover {
+                                    color: @primarycolor;
+                                }
+                            }
+                        }
+                    }
+                    ul.sub-menu {
+                        float: left;
+                        margin: 0;
+                        padding: 0 0 0 10px;
+                        width: 100%;
+                        li {
+                            float: left;
+                            list-style: none;
+                            margin: 0;
+                            position: relative;
+                            width: 100%;
+                            a {
+                                border-top: 1px solid #ddd;
+                                color: @greycolor;
+                                display: block;
+                                float: left;
+                                font-family: @menufont;
+                                height: 40px;
+                                line-height: 40px;
+                                width: 100%;
+                                &:hover {
+                                    color: @linkhovercolor;
+                                }
+                            }
+                        }
+                         > li.current-menu-item,
+                         > li.current-menu-parent {
+                             > a {
+                                color: @primarycolor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
