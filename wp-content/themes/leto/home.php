@@ -10,7 +10,7 @@
 get_header();
 
 $sidebar = get_theme_mod( 'leto_fullwidth_blog_archives' );
-if ( !$sidebar ) {
+if ( true ) {
 	$cols = 'col-md-12';
 } else {
 	$cols = 'col-md-9';
